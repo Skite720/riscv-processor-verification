@@ -1,0 +1,133 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_0000029b3134b620 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0000029b31238220 .scope module, "decoder_tb" "decoder_tb" 3 3;
+ .timescale -9 -12;
+v0000029b31244530_0 .net "funct3", 2 0, L_0000029b31243d10;  1 drivers
+v0000029b31244670_0 .net "funct7", 6 0, L_0000029b31243db0;  1 drivers
+v0000029b31243950_0 .net "imm_i", 31 0, L_0000029b31243b30;  1 drivers
+v0000029b31244210_0 .var "instr", 31 0;
+v0000029b31244030_0 .net "opcode", 6 0, L_0000029b312442b0;  1 drivers
+v0000029b31244170_0 .net "rd", 4 0, L_0000029b31244350;  1 drivers
+v0000029b31244490_0 .net "rs1", 4 0, L_0000029b312439f0;  1 drivers
+v0000029b312445d0_0 .net "rs2", 4 0, L_0000029b31243ef0;  1 drivers
+S_0000029b31239410 .scope module, "dut" "decoder" 3 15, 4 1 0, S_0000029b31238220;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "instr";
+    .port_info 1 /OUTPUT 7 "opcode";
+    .port_info 2 /OUTPUT 5 "rd";
+    .port_info 3 /OUTPUT 3 "funct3";
+    .port_info 4 /OUTPUT 5 "rs1";
+    .port_info 5 /OUTPUT 5 "rs2";
+    .port_info 6 /OUTPUT 7 "funct7";
+    .port_info 7 /OUTPUT 32 "imm_i";
+v0000029b31213490_0 .net *"_ivl_13", 0 0, L_0000029b31243a90;  1 drivers
+v0000029b3134bd50_0 .net *"_ivl_14", 19 0, L_0000029b312443f0;  1 drivers
+v0000029b3134b7b0_0 .net *"_ivl_17", 11 0, L_0000029b31243770;  1 drivers
+v0000029b312376f0_0 .net "funct3", 2 0, L_0000029b31243d10;  alias, 1 drivers
+v0000029b31237790_0 .net "funct7", 6 0, L_0000029b31243db0;  alias, 1 drivers
+v0000029b312383b0_0 .net "imm_i", 31 0, L_0000029b31243b30;  alias, 1 drivers
+v0000029b31238450_0 .net "instr", 31 0, v0000029b31244210_0;  1 drivers
+v0000029b312395a0_0 .net "opcode", 6 0, L_0000029b312442b0;  alias, 1 drivers
+v0000029b31243c70_0 .net "rd", 4 0, L_0000029b31244350;  alias, 1 drivers
+v0000029b31243bd0_0 .net "rs1", 4 0, L_0000029b312439f0;  alias, 1 drivers
+v0000029b31243e50_0 .net "rs2", 4 0, L_0000029b31243ef0;  alias, 1 drivers
+L_0000029b312442b0 .part v0000029b31244210_0, 0, 7;
+L_0000029b31244350 .part v0000029b31244210_0, 7, 5;
+L_0000029b31243d10 .part v0000029b31244210_0, 12, 3;
+L_0000029b312439f0 .part v0000029b31244210_0, 15, 5;
+L_0000029b31243ef0 .part v0000029b31244210_0, 20, 5;
+L_0000029b31243db0 .part v0000029b31244210_0, 25, 7;
+L_0000029b31243a90 .part v0000029b31244210_0, 31, 1;
+LS_0000029b312443f0_0_0 .concat [ 1 1 1 1], L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90;
+LS_0000029b312443f0_0_4 .concat [ 1 1 1 1], L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90;
+LS_0000029b312443f0_0_8 .concat [ 1 1 1 1], L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90;
+LS_0000029b312443f0_0_12 .concat [ 1 1 1 1], L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90;
+LS_0000029b312443f0_0_16 .concat [ 1 1 1 1], L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90, L_0000029b31243a90;
+LS_0000029b312443f0_1_0 .concat [ 4 4 4 4], LS_0000029b312443f0_0_0, LS_0000029b312443f0_0_4, LS_0000029b312443f0_0_8, LS_0000029b312443f0_0_12;
+LS_0000029b312443f0_1_4 .concat [ 4 0 0 0], LS_0000029b312443f0_0_16;
+L_0000029b312443f0 .concat [ 16 4 0 0], LS_0000029b312443f0_1_0, LS_0000029b312443f0_1_4;
+L_0000029b31243770 .part v0000029b31244210_0, 20, 12;
+L_0000029b31243b30 .concat [ 12 20 0 0], L_0000029b31243770, L_0000029b312443f0;
+    .scope S_0000029b31238220;
+T_0 ;
+    %pushi/vec4 6456243, 0, 32;
+    %store/vec4 v0000029b31244210_0, 0, 32;
+    %delay 1000, 0;
+    %load/vec4 v0000029b31244030_0;
+    %cmpi/e 51, 0, 7;
+    %jmp/0xz  T_0.0, 4;
+    %jmp T_0.1;
+T_0.0 ;
+    %vpi_call/w 3 30 "$error", "Opcode decode failed" {0 0 0};
+T_0.1 ;
+    %load/vec4 v0000029b31244170_0;
+    %cmpi/e 7, 0, 5;
+    %jmp/0xz  T_0.2, 4;
+    %jmp T_0.3;
+T_0.2 ;
+    %vpi_call/w 3 31 "$error", "rd decode failed" {0 0 0};
+T_0.3 ;
+    %load/vec4 v0000029b31244490_0;
+    %cmpi/e 5, 0, 5;
+    %jmp/0xz  T_0.4, 4;
+    %jmp T_0.5;
+T_0.4 ;
+    %vpi_call/w 3 32 "$error", "rs1 decode failed" {0 0 0};
+T_0.5 ;
+    %load/vec4 v0000029b312445d0_0;
+    %cmpi/e 6, 0, 5;
+    %jmp/0xz  T_0.6, 4;
+    %jmp T_0.7;
+T_0.6 ;
+    %vpi_call/w 3 33 "$error", "rs2 decode failed" {0 0 0};
+T_0.7 ;
+    %vpi_call/w 3 34 "$display", "TEST 1: R-TYPE ADD DECODE PASS" {0 0 0};
+    %pushi/vec4 10650259, 0, 32;
+    %store/vec4 v0000029b31244210_0, 0, 32;
+    %delay 1000, 0;
+    %load/vec4 v0000029b31244030_0;
+    %cmpi/e 19, 0, 7;
+    %jmp/0xz  T_0.8, 4;
+    %jmp T_0.9;
+T_0.8 ;
+    %vpi_call/w 3 39 "$error", "I-type opcode failed" {0 0 0};
+T_0.9 ;
+    %load/vec4 v0000029b31244170_0;
+    %cmpi/e 5, 0, 5;
+    %jmp/0xz  T_0.10, 4;
+    %jmp T_0.11;
+T_0.10 ;
+    %vpi_call/w 3 40 "$error", "I-type rd failed" {0 0 0};
+T_0.11 ;
+    %load/vec4 v0000029b31243950_0;
+    %cmpi/e 10, 0, 32;
+    %jmp/0xz  T_0.12, 4;
+    %jmp T_0.13;
+T_0.12 ;
+    %vpi_call/w 3 41 "$error", "I-type immediate failed" {0 0 0};
+T_0.13 ;
+    %vpi_call/w 3 42 "$display", "TEST 2: I-TYPE ADDI DECODE PASS" {0 0 0};
+    %vpi_call/w 3 44 "$display", "\000" {0 0 0};
+    %vpi_call/w 3 45 "$display", "==============================" {0 0 0};
+    %vpi_call/w 3 46 "$display", "ALL DECODER TESTS PASSED" {0 0 0};
+    %vpi_call/w 3 47 "$display", "==============================" {0 0 0};
+    %vpi_call/w 3 48 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/decoder_tb.sv";
+    "rtl/decoder.sv";
