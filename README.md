@@ -50,7 +50,46 @@ The datapath executes one full instruction per clock cycle using dedicated funct
 * **Immediate Generation (`immediate_generator.sv`):** Dynamic sign-extension for 12-bit I-type immediates up to 32 bits.
 * **Control Unit (`control_unit.sv`):** Generates execution signals (`reg_write`, `alu_src`, `mem_write`, `mem_to_reg`, `branch`) across R-Type, I-Type, Load, Store, and Branch instructions.
 * **Arithmetic Logic Unit (`alu.sv`):** Implements parameterized operations including `ADD`, `SUB`, `AND`, `OR`, `XOR`, and `SLT`.
+---
 
+## 🐍 Python-Driven Verification
+
+A Python regression layer sits on top of the RTL simulation to automate test-program generation and result checking, removing manual .hex authoring and manual waveform inspection from the verification loop.
+
+- **Instruction Encoder (`scripts/rv32i_encoding.py`):** Hand-implements the RV32I R/I/S/B-type instruction formats, assembling valid 32-bit machine code directly from Python (`addi`, `add`, `sub`, `and_`, `or_`, `xor_`, `slt`, `lw`, `sw`, `beq`, etc.) with bounds-checked signed immediates and register indices.
+- **Regression Runner (`scripts/run_regression.py`):** Generates a multi-instruction test program exercising arithmetic, logic, memory, and branch control flow, compiles the full RTL + testbench via `iverilog`, runs it via `vvp`, then parses the simulation output and cross-checks every register and memory result against expected architectural state — including verifying `x0` hardwiring and correct branch-skip behavior.
+
+### Running the Python Regression
+
+\`\`\`
+python scripts/run_regression.py
+\`\`\`
+
+Expected output ends with:
+
+\`\`\`
+========================================
+ALL PYTHON-DRIVEN TESTS PASSED
+========================================
+
+Verified:
+  ADDI
+  ADD
+  SUB
+  AND
+  OR
+  XOR
+  SLT
+  LW
+  SW
+  BEQ
+  x0 hardwired to zero
+  register results
+  memory results
+  branch control flow
+\`\`\`
+
+---
 ---
 
 ## 📁 Repository Structure
