@@ -1,22 +1,21 @@
-module instruction_memory (
-    input  logic [31:0] address,
+module instruction_memory #(
+    parameter PROGRAM_FILE = "programs/program.hex"
+)(
+    input logic [31:0] address,
     output logic [31:0] instruction
 );
 
     logic [31:0] memory [0:255];
 
+    integer i;
+
     initial begin
-        // addi x5, x0, 10
-        memory[0] = 32'h00A00293;
 
-        // addi x6, x0, 20
-        memory[1] = 32'h01400313;
+        for (i = 0; i < 256; i = i + 1)
+            memory[i] = 32'h00000013;
 
-        // add x7, x5, x6
-        memory[2] = 32'h006283B3;
+        $readmemh(PROGRAM_FILE, memory);
 
-        // NOP
-        memory[3] = 32'h00000013;
     end
 
     assign instruction = memory[address[9:2]];

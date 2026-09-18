@@ -95,16 +95,17 @@ module cpu (
     logic branch;
     logic [2:0] alu_control;
 
-    control_unit control (
-        .opcode(opcode),
-        .funct3(funct3),
-        .reg_write(reg_write),
-        .alu_src(alu_src),
-        .mem_write(mem_write),
-        .mem_to_reg(mem_to_reg),
-        .branch(branch),
-        .alu_control(alu_control)
-    );
+    control_unit control(
+    .opcode(opcode),
+    .funct3(funct3),
+    .funct7(funct7),
+    .reg_write(reg_write),
+    .alu_src(alu_src),
+    .mem_write(mem_write),
+    .mem_to_reg(mem_to_reg),
+    .branch(branch),
+    .alu_control(alu_control)
+);
 
     // =========================================================
     // ALU
